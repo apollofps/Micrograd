@@ -1,0 +1,40 @@
+# Ignore build outputs
+bin/
+obj/
+*.exe
+*.dll
+*.pdb
+*.log
+
+# Ignore user-specific files
+.vscode/
+*.user
+*.suo
+*.userosscache
+*.sln.docstates
+
+# Ignore .NET dependencies
+*.nuget/
+packages/
+project.lock.json
+project.assets.json
+
+# Ignore generated files
+*.cache
+*.pidb
+*.ilk
+*.ilk
+*.ilk
+*.aps
+*.ncb
+*.sdf
+*.ipch
+*.tlog/
+*.log
+*.DS_Store
+*.vs/
+TestResults/
+
+# Ignore environment files
+.env
+secrets.json
