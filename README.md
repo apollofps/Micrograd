@@ -75,7 +75,7 @@ Welcome to **Micrograd** – a mini-autograd engine built in C#! Inspired by the
 
 - **Hyperlinks for the Nerds:**
   - [Project File](Micrograd.csproj) – where the magic is set up.
-  - [Autograd Scalar](src/scalar_autogard.cs) – brush up on high school calculus before clicking.
+  - [Autograd Scalar](src/scalar_autograd.cs) – brush up on high school calculus before clicking.
   - [Module Base](src/Module.cs) – keeps things modular with parameter zeroing and more.
   - [Neuron Details](src/Neuron.cs) – the building blocks of our neural nets.
   - [MLP Layers](src/MLP.cs) – the guts of our network architecture.
