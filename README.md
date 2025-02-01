@@ -84,10 +84,10 @@ Welcome to **Micrograd** – a mini-autograd engine built in C#! Inspired by the
 - **Dope Visuals:**
   - *Multi Layer Perceptron*
   - ![Neural Network Viz](https://media.datacamp.com/legacy/v1725638284/image_bd3b978959.png)  
-  - *CNN (Not the news channel, bro)*  
+  - *Neuron*  
   - ![CNN](https://miro.medium.com/v2/0*E5gye0i57ipYJh18.png)
 
-### A Note on CNNs
+### A Note on CNN(Not the news channel, bro)
 You’ll see a diagram referencing a CNN above—so what is a **Convolutional Neural Network** (CNN), and how is it different from the MLP approach used in this repo?
 
    **Convolution Layers:**  
