@@ -23,7 +23,7 @@ public class Neuron:Module
         var act = w.Zip(x, (wi, xi) => wi * xi).Aggregate(b, (sum, term) => sum + term);
         return nonlin ? act.Tanh() : act;
     }
-
+    
     public override List<Value> Parameters()=> w.Append(b).ToList();
     public override string ToString() => $"{(nonlin ? "Tanh" : "Linear")}Neuron({w.Count})";
 }
