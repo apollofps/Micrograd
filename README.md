@@ -75,30 +75,25 @@ Welcome to **Micrograd** – a mini-autograd engine built in C#! Inspired by the
 
 - **Hyperlinks for the Nerds:**
   - [Project File](Micrograd.csproj) – where the magic is set up.
-  - [Autograd Scalar](Micrograd.csproj) – brush up on high school calculus before clicking.
+  - [Autograd Scalar](src/autograd_scalar.cs) – brush up on high school calculus before clicking.
   - [Module Base](src/Module.cs) – keeps things modular with parameter zeroing and more.
   - [Neuron Details](src/Neuron.cs) – the building blocks of our neural nets.
   - [MLP Layers](src/MLP.cs) – the guts of our network architecture.
   - [Main Runner](program.cs) – where it all kicks off.
 
 - **Dope Visuals:**
-  - ![Neural Network Viz](https://www.altexsoft.com/static/content-image/2024/6/ec55ad04-11ca-44f3-8eec-9399936c26ff.png)  
-    *CNN (Not the news channel, bro)*  
-    This is what happens in our little Neuron class when computing weights and biases.
-
+  - *Multi Layer Perceptron*
+  - ![Neural Network Viz](https://media.datacamp.com/legacy/v1725638284/image_bd3b978959.png)  
+  - *CNN (Not the news channel, bro)*  
   - ![CNN](https://miro.medium.com/v2/0*E5gye0i57ipYJh18.png)
 
 ### A Note on CNNs
 You’ll see a diagram referencing a CNN above—so what is a **Convolutional Neural Network** (CNN), and how is it different from the MLP approach used in this repo?
 
-1. **Convolution Layers:**  
-   Instead of feeding raw input directly to fully connected layers (like in an MLP), CNNs use **filters** (also called **kernels**) that slide over the input data (often images) to detect local features. For instance, a small 3×3 filter could learn to detect edges or corners. These filters are learned automatically during training, just like MLP weights.
-2. **Pooling Layers:**  
-   CNNs often include pooling operations (like **max pooling**) that reduce spatial dimensions. This makes the network more computationally efficient and reduces overfitting by forcing it to learn robust features, not memorize pixel-level details.
-3. **Stacking & Depth:**  
-   By stacking multiple convolution and pooling layers, CNNs build a hierarchy of features—from low-level edges in early layers to high-level concepts (like object parts) in deeper layers.
-4. **Final Classification Layers:**  
-   After the convolutional part does its magic, the feature map is flattened and sent into a small MLP-like network for the final classification. Think of it as a specialized featurizer + standard classification head.
+   **Convolution Layers:**  
+     Instead of feeding raw input directly to fully connected layers (like in an MLP), CNNs use **filters** (also called **kernels**) that slide over the input data (often images) to detect local features. For instance, a small 3×3 filter could learn to detect edges or corners. These filters are learned automatically during training, just like MLP weights.
+   **Final Classification Layers:**  
+     After the convolutional part does its magic, the feature map is flattened and sent into a small MLP-like network for the final classification. Think of it as a specialized featurizer + standard classification head.
 
 While **Micrograd** here focuses on MLPs for simplicity, the same principles of autograd and backpropagation apply to CNNs—just with more sophisticated layers and operations. If you’re feeling spicy, you could extend this framework to add convolution layers, but fair warning: get ready for some matrix indexing madness!
 
