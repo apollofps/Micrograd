@@ -2,40 +2,38 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-using Micrograd;  // Make sure you reference your Micrograd library that contains Value and MLP classes.
+using Micrograd;  
 
 class Program
 {
-    // Use a single Random instance seeded with 1337 for reproducibility.
+    
     static Random rng = new Random(1337);
 
     static void Main(string[] args)
     {
-        // Load moons data from a CSV file.
-        // The CSV file should have a header and three columns: x1, x2, label.
-        // The label is expected to be either -1.0 or 1.0.
+        
         var (X, y) = LoadMoonsData("moons_dataset.csv");
 
-        // Initialize the model: 2 inputs, two hidden layers of 16 neurons each, and 1 output.
+      
         var model = new MLP(2, new List<int> { 16, 16, 1 });
 
-        // Open a log file to record training progress.
+       
         string logFile = "training_logs.csv";
         using (StreamWriter writer = new StreamWriter(logFile))
         {
             writer.WriteLine("Step,Loss,Accuracy");
 
-            // Run training for 100 steps.
+           
             for (int step = 0; step < 100; step++)
             {
-                // Compute loss and accuracy over the full dataset.
+                
                 var (totalLoss, accuracy) = ComputeLoss(X, y, model, batchSize: null);
 
-                // Zero out gradients, perform backpropagation.
+              
                 model.ZeroGrad();
                 totalLoss.Backward();
 
-                // Update parameters with a learning rate that decays linearly from 1.0 to 0.1.
+                
                 double learningRate = 1.0 - 0.9 * step / 100.0;
                 foreach (var p in model.Parameters())
                 {
@@ -72,14 +70,14 @@ class Program
                 var line = reader.ReadLine();
                 var values = line.Split(',');
 
-                // Create input features.
+               
                 X.Add(new List<Value>
                 {
                     new Value(double.Parse(values[0])),
                     new Value(double.Parse(values[1]))
                 });
 
-                // Parse the label.
+                
                 y.Add((int)double.Parse(values[2]));
             }
         }
@@ -116,13 +114,13 @@ class Program
         List<Value> losses = new List<Value>();
         List<Value> predictions = new List<Value>();
 
-        // For each sample, compute the model score and the SVM loss.
+       
         for (int i = 0; i < Xb.Count; i++)
         {
             var x = Xb[i];
             var target = new Value(yb[i]); // target is -1 or 1
 
-            // Forward pass: obtain the model’s output score.
+           
             var score = model.Call(x)[0];
             predictions.Add(score);
 
